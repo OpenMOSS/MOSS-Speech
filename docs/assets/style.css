@@ -51,8 +51,9 @@ body {
 /* Typography refinements (reference style akin to MOSS site) */
 html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 body { letter-spacing: .1px; }
-p, li { font-size: 16.5px; }
-.section h2 { font-size: 30px; letter-spacing: .2px; }
+h1, h2, h3 { letter-spacing: .2px; }
+p, li { font-size: 17px; line-height: 1.5; }
+.section h2 { font-size: 32px; letter-spacing: .2px; }
 h3 { font-size: 20px; margin: 18px 0 10px; color: var(--text); }
 
 .container { width: 100%; max-width: 980px; margin: 0 auto; padding: 0 20px; }
@@ -66,9 +67,35 @@ h3 { font-size: 20px; margin: 18px 0 10px; color: var(--text); }
 .nav a { color: var(--muted); text-decoration: none; padding: 8px 10px; border-radius: 8px; }
 .nav a:hover { color: var(--text); background: var(--card); }
 
-.hero { padding: 96px 0 64px; }
-.hero-title { margin-bottom: 40px; }
-.hero-title h1 { font-size: 42px; margin: 0; text-align: center; line-height: 1.2; }
+.hero { 
+  padding: 96px 0 64px; 
+  position: relative;           /* 承载渐变背景伪元素 */
+  overflow: hidden;             /* 柔化后溢出的光晕不影响布局 */
+}
+/* 发光云彩式渐变背景 */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -12% -20% auto -20%;   /* 覆盖范围，向外扩一点让过渡更自然 */
+  height: clamp(320px, 60vh, 640px);
+  z-index: -1;                  /* 放到内容后面 */
+  pointer-events: none;         /* 不影响交互 */
+  filter: blur(22px) saturate(110%);
+  background:
+    radial-gradient(60% 60% at 50% 20%, rgba(79, 70, 229, 0.18), transparent 60%),
+    radial-gradient(40% 40% at 80% 10%, rgba(14, 165, 233, 0.16), transparent 60%),
+    radial-gradient(35% 35% at 20% 5%,  rgba(236, 72, 153, 0.14), transparent 60%);
+}
+/* 暗色模式下提升亮度、调整配色以保持可见度 */
+[data-theme="dark"] .hero::before {
+  filter: blur(24px) saturate(120%);
+  background:
+    radial-gradient(60% 60% at 50% 20%, rgba(139, 125, 255, 0.28), transparent 60%),
+    radial-gradient(40% 40% at 80% 10%, rgba(56, 189, 248, 0.24), transparent 60%),
+    radial-gradient(35% 35% at 20% 5%,  rgba(244, 114, 182, 0.22), transparent 60%);
+}
+.hero-title { margin-bottom: 44px; }
+.hero-title h1 { font-size: 44px; margin: 0 auto; text-align: center; line-height: 1.22; max-width: 920px; }
 .title-divider {
   width: 120px;
   height: 3px;
@@ -80,10 +107,10 @@ h3 { font-size: 20px; margin: 18px 0 10px; color: var(--text); }
   display: block; /* 或 grid-template-columns: 1fr; */
 }
 .subtitle { 
-  color: var(--text); 
+  color: var(--muted); 
   font-size: 18px;
-  line-height: 1.7; 
-  margin: 0 0 24px;
+  line-height: 1.8; 
+  margin: 0 0 26px;
   font-weight: 400;
 }
 .cta-row { display: flex; gap: 12px; }
@@ -108,11 +135,12 @@ h3 { font-size: 20px; margin: 18px 0 10px; color: var(--text); }
   background: #f1f5f9;
 }
 .btn.primary {
-  background: var(--bg-elev);
-  color: var(--text);
-  border: 1px solid var(--border);
+  background: var(--primary);
+  color: #fff;
+  border: 1px solid transparent;
   box-shadow: var(--shadow);
 }
+.btn.primary:hover { filter: saturate(110%); }
 
 
 
@@ -151,31 +179,61 @@ h3 { font-size: 20px; margin: 18px 0 10px; color: var(--text); }
   z-index: 1; 
 }
 
-.section { padding: 48px 0; }
-.section h2 { margin: 0 0 18px; font-size: 28px; }
+.section { padding: 56px 0; }
+.section h2 { margin: 0; }
 
-.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.feature { background: var(--bg-elev); border: 1px solid var(--border); border-radius: 14px; padding: 16px; }
-.emoji { font-size: 22px; }
-.feature h3 { margin: 10px 0 8px; font-size: 16px; }
-.feature p { margin: 0; color: var(--muted); }
+/* Highlights 区域 */
+.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+/* 提高 Highlights 标题与卡片之间的间距 */
+.section h2 + .features-grid { margin-top: 18px; }
+/* Highlights 卡片：更精致的版式与对齐 */
+.feature {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: 1fr; /* 移除图标列，统一为单列布局 */
+  align-items: start;
+  column-gap: 0;
+  row-gap: 6px;
+  transition: transform .16s ease, box-shadow .2s ease;
+}
+.feature:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(2,6,23,0.08); }
+/* 隐藏卡片中的 emoji 图标 */
+.feature .emoji { display: none; }
+.feature h3 {
+  margin: 2px 0 6px;
+  font-size: 16.5px;
+  font-weight: 700;
+  color: var(--text);
+}
+.feature p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5; /* 正文字体间距略小，提升信息密度 */
+  font-size: 15.5px;
+}
 
 .section-head {
   display: flex;
-  flex-direction: column; /* 改成纵向排列 */
+  flex-direction: column; /* 纵向排列 */
   align-items: flex-start; /* 左对齐所有内容 */
-  gap: 4px; /* 控制标题和说明的间距 */
+  gap: 12px; /* 标题、说明、筛选之间的间距 */
 }
 
 .note-inline {
-  margin: 0; /* 去掉原本的 margin */
-  font-size: 13px;
+  margin: 0; /* 由 section-head 的 gap 控制间距 */
+  font-size: 15px; /* 放大说明文字 */
+  line-height: 1.6;
   color: var(--muted);
 }
 
-.filters { display: flex; gap: 8px; flex-wrap: nowrap; }
-.chip { height: 32px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--chip); color: var(--muted); cursor: pointer; }
+.filters { display: flex; gap: 8px; flex-wrap: wrap; }
+.chip { height: 32px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--chip); color: var(--muted); cursor: pointer; font-size: 14px; }
 .chip.is-active, .chip:hover { color: var(--text); border-color: #2a2f42; }
+.chip.is-active { background: var(--primary-weak); }
 
 .note { 
   flex-basis: 100%;
@@ -191,21 +249,38 @@ h3 { font-size: 20px; margin: 18px 0 10px; color: var(--text); }
 .demo-grid {
   display: flex;
   flex-direction: column;  /* 纵向排列 */
-  gap: 16px;               /* 每个 demo 之间的间距 */
+  gap: 20px;               /* 每个 demo 之间的间距 */
   overflow: visible;       /* 不需要横向滚动 */
   padding: 0;              /* 根据需要留白 */
+  margin-top: 14px;        /* 与筛选区分开，避免第一个卡片顶着标签 */
 }
 
 .card {
   flex: 1 0 auto;          /* 每行一个，自动撑满宽度 */
-  width: 100%;             /* 可以根据需要设置固定或自适应宽度 */
-  max-width: 600px;        /* 可选：限制每行最大宽度 */
+  width: 100%;
+  max-width: 680px;        /* 默认更宽一些 */
   margin: 0 auto;          /* 居中 */
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-elev);
+  transition: transform .16s ease, box-shadow .2s ease, border-color .2s ease;
+  overflow: hidden;
 }
-.card-body { padding: 14px; display: grid; gap: 6px; }
-.card-title { margin: 0; font-size: 15px; }
-.card-tags { display: flex; gap: 6px; flex-wrap: wrap; }
-.tag { font-size: 12px; color: var(--tag-text); background: var(--tag-bg); border: 1px solid var(--tag-bg); border-radius: 999px; padding: 2px 8px; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(2,6,23,0.10); }
+.card-body { padding: 16px; display: grid; gap: 10px; }
+.card-title { margin: 0; font-size: 17px; font-weight: 600; color: var(--text); }
+.card-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.tag { font-size: 12px; color: var(--muted); background: var(--chip); border: 1px solid var(--border); border-radius: 999px; padding: 2px 10px; }
+
+/* 媒体元素更友好显示，视频更大一些（由卡片宽度驱动） */
+.card video, .card audio { width: 100%; border-radius: 12px; border: 1px solid var(--border); box-shadow: var(--shadow); background: #000; }
+.card audio { background: var(--bg); }
+
+/* 桌面端进一步加宽卡片，视频自然跟随到更大 */
+@media (min-width: 960px) {
+  .card { max-width: 880px; }
+}
 
 .steps { margin: 0; padding-left: 18px; color: var(--muted); }
 
@@ -236,14 +311,14 @@ h3 { font-size: 20px; margin: 18px 0 10px; color: var(--text); }
 .footer-inner { display: flex; align-items: center; justify-content: center; }
 
 @media (max-width: 960px) {
-  .hero-title h1 { font-size: 32px; }
+  .hero-title h1 { font-size: 34px; }
   .hero-inner { grid-template-columns: 1fr; }
   .features-grid { grid-template-columns: repeat(2, 1fr); }
   .demo-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 560px) {
-  .hero-title h1 { font-size: 24px; }
+  .hero-title h1 { font-size: 26px; }
   .features-grid { grid-template-columns: 1fr; }
   .demo-grid { grid-template-columns: 1fr; }
 }

@@ -58,11 +58,15 @@ const nextBtn = document.querySelector('.carousel-btn.next');
 
 const cardWidth = 256; // 每个卡片宽度 + gap，大约=240+16
 
-prevBtn.addEventListener('click', () => {
-  demoGrid.scrollBy({ left: -cardWidth * 3, behavior: 'smooth' });
-});
+if (prevBtn && demoGrid) {
+  prevBtn.addEventListener('click', () => {
+    demoGrid.scrollBy({ left: -cardWidth * 3, behavior: 'smooth' });
+  });
+}
 
-nextBtn.addEventListener('click', () => {
-  demoGrid.scrollBy({ left: cardWidth * 3, behavior: 'smooth' });
-});
+if (nextBtn && demoGrid) {
+  nextBtn.addEventListener('click', () => {
+    demoGrid.scrollBy({ left: cardWidth * 3, behavior: 'smooth' });
+  });
+}
 
