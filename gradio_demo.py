@@ -24,7 +24,7 @@ def parse_args():
     parser.add_argument(
         '--codec_path',
         type=str,
-        default='fnlp/MOSS-Speech-Codec'
+        default='fnlp/MOSS-Speech-Codec',
         help="the path of codec",
     )
     parser.add_argument("--host", type=str, default="0.0.0.0", help="server address")
