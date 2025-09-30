@@ -50,3 +50,19 @@ fetch('demos/demo_config.json')
   .catch(() => { demos = []; renderGrid(); });
 
 
+const demoGrid = document.getElementById('demo-grid');
+
+// const demoGrid = document.getElementById('demo-grid');
+const prevBtn = document.querySelector('.carousel-btn.prev');
+const nextBtn = document.querySelector('.carousel-btn.next');
+
+const cardWidth = 256; // 每个卡片宽度 + gap，大约=240+16
+
+prevBtn.addEventListener('click', () => {
+  demoGrid.scrollBy({ left: -cardWidth * 3, behavior: 'smooth' });
+});
+
+nextBtn.addEventListener('click', () => {
+  demoGrid.scrollBy({ left: cardWidth * 3, behavior: 'smooth' });
+});
+

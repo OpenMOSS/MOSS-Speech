@@ -76,7 +76,9 @@ h3 { font-size: 20px; margin: 18px 0 10px; color: var(--text); }
   margin: 24px auto 0;
   border-radius: 2px;
 }
-.hero-inner { display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; align-items: center; }
+.hero-inner {
+  display: block; /* 或 grid-template-columns: 1fr; */
+}
 .subtitle { 
   color: var(--text); 
   font-size: 18px;
@@ -158,7 +160,19 @@ h3 { font-size: 20px; margin: 18px 0 10px; color: var(--text); }
 .feature h3 { margin: 10px 0 8px; font-size: 16px; }
 .feature p { margin: 0; color: var(--muted); }
 
-.section-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.section-head {
+  display: flex;
+  flex-direction: column; /* 改成纵向排列 */
+  align-items: flex-start; /* 左对齐所有内容 */
+  gap: 4px; /* 控制标题和说明的间距 */
+}
+
+.note-inline {
+  margin: 0; /* 去掉原本的 margin */
+  font-size: 13px;
+  color: var(--muted);
+}
+
 .filters { display: flex; gap: 8px; flex-wrap: nowrap; }
 .chip { height: 32px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--chip); color: var(--muted); cursor: pointer; }
 .chip.is-active, .chip:hover { color: var(--text); border-color: #2a2f42; }
@@ -172,10 +186,22 @@ h3 { font-size: 20px; margin: 18px 0 10px; color: var(--text); }
   opacity: .85;
 }
 
-.note-inline { flex-basis: 100%; margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+/* .note-inline { flex-basis: 100%; margin: 4px 0 0; color: var(--muted); font-size: 13px; } */
 
-.demo-grid { margin-top: 16px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-.card { background: var(--card); border: 1px solid var(--card-border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--shadow); }
+.demo-grid {
+  display: flex;
+  flex-direction: column;  /* 纵向排列 */
+  gap: 16px;               /* 每个 demo 之间的间距 */
+  overflow: visible;       /* 不需要横向滚动 */
+  padding: 0;              /* 根据需要留白 */
+}
+
+.card {
+  flex: 1 0 auto;          /* 每行一个，自动撑满宽度 */
+  width: 100%;             /* 可以根据需要设置固定或自适应宽度 */
+  max-width: 600px;        /* 可选：限制每行最大宽度 */
+  margin: 0 auto;          /* 居中 */
+}
 .card-body { padding: 14px; display: grid; gap: 6px; }
 .card-title { margin: 0; font-size: 15px; }
 .card-tags { display: flex; gap: 6px; flex-wrap: wrap; }

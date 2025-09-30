@@ -21,7 +21,6 @@
         <nav class="nav">
           <a href="#features">Features</a>
           <a href="#demos">Demos</a>
-          <a href="#intro">Model</a>
           <a href="https://github.com/OpenMOSS/MOSS-Speech" target="_blank" rel="noreferrer">GitHub</a>
         </nav>
       </div>
@@ -36,15 +35,11 @@
           </div>
           <div class="hero-inner">
             <div class="hero-copy">
-              <p class="subtitle">MOSS-Speech is a true speech-to-speech large language model that directly understands and generates speech without relying on text intermediates, preserving paralinguistic cues while reducing latency and enhancing expressivity.</p>
+              <p class="subtitle">MOSS-Speech enables speech-to-speech interaction without materializing intermediate text. Traditional ASR→LLM→TTS pipelines discard prosodic cues (intonation, affect, pausing) and hinder conversational naturalness. Prior “end-to-end” systems often still rely on textual guidance during generation, reducing efficiency and expressivity. By removing the text bottleneck while preserving strong reasoning ability, MOSS-Speech delivers more faithful prosody and fluid, natural dialogue, marking a substantive step toward fully acoustic human–AI communication.</p>
               <div class="cta-row">
               <a class="btn primary" href="#demos">Try Demos</a>
-              <a class="btn" href="#features">Features</a>
+              <a class="btn" href="https://github.com/OpenMOSS/MOSS-Speech" target="_blank" rel="noreferrer">Learn More</a>
               </div>
-            </div>
-            <div class="hero-art">
-              <img src="assets/hero-image.jpeg" alt="MOSS-Speech Architecture" class="hero-image" />
-              <div class="glow"></div>
             </div>
           </div>
         </div>
@@ -56,60 +51,38 @@
           <div class="features-grid">
             <div class="feature">
               <div class="emoji">🎯</div>
-              <h3>True Speech-to-Speech</h3>
-              <p>First LLM that directly processes speech without text intermediates, achieving SOTA performance while preserving paralinguistic cues.</p>
+              <h3>True Speech-to-Speech Modeling</h3>
+              <p>Directly processes speech for both understanding and generation, preserving intonation, affect, laughter, and pauses for natural, efficient conversations.</p>
             </div>
             <div class="feature">
               <div class="emoji">🔧</div>
-              <h3>Layer-Split Architecture</h3>
-              <p>Modality-based layer splitting with frozen pre-training preserves text reasoning while adding native speech capabilities.</p>
+              <h3>Modality-Aligned Architecture</h3>
+              <p>Built on a pretrained text LLM with modality-specific layers over shared reasoning cores, enabling native speech comprehension and synthesis while retaining strong reasoning.</p>
             </div>
             <div class="feature">
               <div class="emoji">📊</div>
-              <h3>Comprehensive Validation</h3>
-              <p>Extensive experiments demonstrate superior cross-modal alignment and maintained text performance across benchmarks.</p>
+              <h3>Bimodal I/O Support</h3>
+              <p>Enables flexible cross-modal communication by supporting all combinations of speech and text: speech→speech, text→speech, speech→text, and text→text.</p>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section id="intro" class="section">
-        <div class="container">
-          <h2>Model Overview</h2>
-          <div class="toc">
-            <a href="#intro">Overview</a>
-            <a href="#arch">Model Architecture</a>
-            <a href="#data">Data Collection</a>
-            <a href="#pretrain">Two-stage Pre-training</a>
-            <a href="#sft">Supervised Fine-tuning</a>
-          </div>
-          <div class="intro-card">
-            <p>
-              Spoken dialogue systems often rely on cascaded pipelines that transcribe, process, and resynthesize speech. While effective, this design discards paralinguistic cues and limits expressivity. Recent end-to-end methods reduce latency and better preserve these cues, yet still rely on text intermediates, creating a fundamental bottleneck. We present MOSS-Speech, a true speech-to-speech large language model that directly understands and generates speech without relying on text guidance.
-            </p>
-            <p>
-              Our approach combines a modality-based layer-splitting architecture with a frozen pre-training strategy, preserving the reasoning and knowledge of pretrained text LLMs while adding native speech capabilities. Experiments show that our model achieves state-of-the-art results in spoken question answering and delivers comparable speech-to-speech performance relative to existing text-guided systems, while still maintaining competitive text performance. By narrowing the gap between text-guided and direct speech generation, our work establishes a new paradigm for expressive and efficient end-to-end speech interaction.
-            </p>
-          </div>
-
-          
         </div>
       </section>
 
       <section id="demos" class="section">
-        <div class="container">
-          <div class="section-head">
-            <h2>Demo </h2>
-            <p class="note-inline">Model inference segments in the videos have been time-accelerated.</p>
-            <div class="filters">
-              <button class="chip is-active" data-filter="all">All</button>
-              <button class="chip" data-filter="zh">Chinese</button>
-              <button class="chip" data-filter="en">English</button>
-            </div>
-          </div>
-          <div id="demo-grid" class="demo-grid" aria-live="polite"></div>
-        </div>
-      </section>
+  <div class="container">
+    <div class="section-head">
+      <h2>Demo </h2>
+      <p class="note-inline">Model inference segments in the videos have been time-accelerated.</p>
+      <div class="filters">
+        <button class="chip is-active" data-filter="all">All</button>
+        <button class="chip" data-filter="zh">Chinese</button>
+        <button class="chip" data-filter="en">English</button>
+      </div>
+    </div>
+    <div id="demo-grid" class="demo-grid" aria-live="polite"></div>
+  </div>
+</section>
+
 
     </main>
 
