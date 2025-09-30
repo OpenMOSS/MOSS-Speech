@@ -124,7 +124,7 @@ class MIMOInterface:
         self.inference = Inference(model_path, codec_path="fnlp/MOSS-Speech-Codec")
         self.audio_dir = "chat_audio"
         os.makedirs(self.audio_dir, exist_ok=True)
-        self.default_decoder_audio_prompt_path = ".assets/prompt_cn.wav"
+        self.default_decoder_audio_prompt_path = "./assets/prompt_cn.wav"
 
 
     # ---------- Helpers ----------
