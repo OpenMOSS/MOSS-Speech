@@ -29,7 +29,7 @@ def parse_args():
     )
     parser.add_argument("--host", type=str, default="0.0.0.0", help="server address")
     parser.add_argument("--port", type=int, default=7860, help="server port")
-    parser.add_argument("--share", action="store_true", help="cweather reate a public link")
+    parser.add_argument("--share", action="store_true", help="weather reate a public link")
     return parser.parse_args()
 
 
@@ -48,7 +48,6 @@ def main():
         server_name=args.host,
         server_port=args.port,
         share=args.share,
-        ssl_verify=False,
     )
 
 
