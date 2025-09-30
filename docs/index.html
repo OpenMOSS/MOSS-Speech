@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MOSS-Speech | Towards True Speech-to-Speech Models</title>
+    <meta name="description" content="MOSS-Speech: A true speech-to-speech foundation model without text guidance. Direct speech understanding and generation, preserving paralinguistic cues with low latency and high expressivity." />
+    <link rel="icon" href="assets/illustrations/logo.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <img src="assets/illustrations/logo.png" alt="Logo" class="logo" />
+          <span class="brand-name">MOSS-Speech</span>
+        </div>
+        <nav class="nav">
+          <a href="#features">Features</a>
+          <a href="#demos">Demos</a>
+          <a href="#intro">Model</a>
+          <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-title">
+            <h1>MOSS-Speech: Towards True Speech-to-Speech Models Without Text Guidance</h1>
+            <div class="title-divider"></div>
+          </div>
+          <div class="hero-inner">
+            <div class="hero-copy">
+              <p class="subtitle">MOSS-Speech is a true speech-to-speech large language model that directly understands and generates speech without relying on text intermediates, preserving paralinguistic cues while reducing latency and enhancing expressivity.</p>
+              <div class="cta-row">
+              <a class="btn primary" href="#demos">Try Demos</a>
+              <a class="btn" href="#features">Features</a>
+              </div>
+            </div>
+            <div class="hero-art">
+              <img src="assets/hero-image.jpeg" alt="MOSS-Speech Architecture" class="hero-image" />
+              <div class="glow"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="container">
+          <h2>Highlights</h2>
+          <div class="features-grid">
+            <div class="feature">
+              <div class="emoji">🎯</div>
+              <h3>True Speech-to-Speech</h3>
+              <p>First LLM that directly processes speech without text intermediates, achieving SOTA performance while preserving paralinguistic cues.</p>
+            </div>
+            <div class="feature">
+              <div class="emoji">🔧</div>
+              <h3>Layer-Split Architecture</h3>
+              <p>Modality-based layer splitting with frozen pre-training preserves text reasoning while adding native speech capabilities.</p>
+            </div>
+            <div class="feature">
+              <div class="emoji">📊</div>
+              <h3>Comprehensive Validation</h3>
+              <p>Extensive experiments demonstrate superior cross-modal alignment and maintained text performance across benchmarks.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="intro" class="section">
+        <div class="container">
+          <h2>Model Overview</h2>
+          <div class="toc">
+            <a href="#intro">Overview</a>
+            <a href="#arch">Model Architecture</a>
+            <a href="#data">Data Collection</a>
+            <a href="#pretrain">Two-stage Pre-training</a>
+            <a href="#sft">Supervised Fine-tuning</a>
+          </div>
+          <div class="intro-card">
+            <p>
+              Spoken dialogue systems often rely on cascaded pipelines that transcribe, process, and resynthesize speech. While effective, this design discards paralinguistic cues and limits expressivity. Recent end-to-end methods reduce latency and better preserve these cues, yet still rely on text intermediates, creating a fundamental bottleneck. We present MOSS-Speech, a true speech-to-speech large language model that directly understands and generates speech without relying on text guidance.
+            </p>
+            <p>
+              Our approach combines a modality-based layer-splitting architecture with a frozen pre-training strategy, preserving the reasoning and knowledge of pretrained text LLMs while adding native speech capabilities. Experiments show that our model achieves state-of-the-art results in spoken question answering and delivers comparable speech-to-speech performance relative to existing text-guided systems, while still maintaining competitive text performance. By narrowing the gap between text-guided and direct speech generation, our work establishes a new paradigm for expressive and efficient end-to-end speech interaction.
+            </p>
+          </div>
+
+          
+        </div>
+      </section>
+
+      <section id="demos" class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Demo </h2>
+            <p class="note-inline">Model inference segments in the videos have been time-accelerated.</p>
+            <div class="filters">
+              <button class="chip is-active" data-filter="all">All</button>
+              <button class="chip" data-filter="zh">Chinese</button>
+              <button class="chip" data-filter="en">English</button>
+            </div>
+          </div>
+          <div id="demo-grid" class="demo-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>© <span id="year"></span> MOSS-Speech</span>
+      </div>
+    </footer>
+
+    <script src="assets/app.js"></script>
+  </body>
+  </html>
+
+

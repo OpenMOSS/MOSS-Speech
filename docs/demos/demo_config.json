@@ -1,0 +1,13 @@
+[
+  { "title": "Math Reasoning (EN #1)", "tags": ["en"], "file": "math-1-en.mp4", "dir": "demos/video" },
+  { "title": "Mathematical Reasoning (CN #1)", "tags": ["zh"], "file": "math-1-cn.mp4", "dir": "demos/video" },
+  { "title": "数学推理（CN #2）", "tags": ["zh"], "file": "math-2-cn.mp4", "dir": "demos/video" },
+  { "title": "喵喵对话（CN #3）", "tags": ["zh"], "file": "meow-3-cn.mp4", "dir": "demos/video" },
+  { "title": "Meow Dialogue (EN)", "tags": ["en"], "file": "meow-en.mp4", "dir": "demos/video" },
+  { "title": "Earth Center (EN)", "tags": ["en"], "file": "earth-center-en.mp4", "dir": "demos/video" },
+  { "title": "Faster Inference (CN)", "tags": ["zh"], "file": "faster-cn.mp4", "dir": "demos/video" },
+  { "title": "若知吧对话（CN）", "tags": ["zh"], "file": "ruozhiba-cn.mp4", "dir": "demos/video" },
+  { "title": "重命名示例（CN）", "tags": ["zh"], "file": "rename-cn.mp4", "dir": "demos/video" }
+]
+
+
