@@ -105,14 +105,14 @@ h3 { font-size: 20px; margin: 18px 0 10px; color: var(--text); }
   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
   background: #f1f5f9;
 }
-.btn.primary { 
-  background: linear-gradient(135deg, var(--brand), var(--accent)); 
-  border: 0;
-  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+.btn.primary {
+  background: var(--bg-elev);
+  color: var(--text);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
-.btn.primary:hover {
-  box-shadow: 0 6px 24px rgba(59, 130, 246, 0.4);
-}
+
+
 
 .hero-art { 
   position: relative; 
@@ -159,7 +159,7 @@ h3 { font-size: 20px; margin: 18px 0 10px; color: var(--text); }
 .feature p { margin: 0; color: var(--muted); }
 
 .section-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-.filters { display: flex; gap: 8px; flex-wrap: wrap; }
+.filters { display: flex; gap: 8px; flex-wrap: nowrap; }
 .chip { height: 32px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--chip); color: var(--muted); cursor: pointer; }
 .chip.is-active, .chip:hover { color: var(--text); border-color: #2a2f42; }
 
