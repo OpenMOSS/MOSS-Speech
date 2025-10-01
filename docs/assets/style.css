@@ -97,12 +97,31 @@ h3 { font-size: 20px; margin: 18px 0 10px; color: var(--text); }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; }
 .logo { width: 28px; height: 28px; }
 .brand-name { letter-spacing: .2px; }
-.nav { display: flex; gap: 16px; }
-.nav a { color: var(--muted); text-decoration: none; padding: 8px 10px; border-radius: 8px; }
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;              /* 12px -> rem */
+  flex-wrap: nowrap;         /* 不换行 */
+  white-space: nowrap;       /* 链接单行显示 */
+  overflow-x: auto;          /* 超出时横向滚动 */
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;     /* 隐藏滚动条(Firefox) */
+}
+.nav::-webkit-scrollbar { display: none; } /* 隐藏滚动条(WebKit) */
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;   /* 8px 10px -> rem */
+  border-radius: 0.5rem;     /* 8px -> rem */
+  font-size: clamp(0.875rem, 1.8vw, 1rem);
+  line-height: 1;            /* 避免行高导致视觉换行 */
+}
 .nav a:hover { color: var(--text); background: var(--card); }
 
 .hero { 
-  padding: 96px 0 64px; 
+  /* 缩小与导航之间的距离，采用响应式上内边距 */
+  padding: clamp(24px, 5vh, 48px) 0 48px; 
   position: relative;           /* 承载渐变背景伪元素 */
   overflow: hidden;             /* 柔化后溢出的光晕不影响布局 */
 }
@@ -130,6 +149,8 @@ h3 { font-size: 20px; margin: 18px 0 10px; color: var(--text); }
 }
 .hero-title { margin-bottom: 44px; }
 .hero-title h1 { font-size: 44px; margin: 0 auto; text-align: center; line-height: 1.22; max-width: 920px; }
+.hero-logo { display: flex; align-items: center; justify-content: center; margin: 0 0 0; }
+.hero-logo img { width: clamp(96px, 20vw, 160px); height: auto; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.08)); border-radius: 12px; }
 .title-divider {
   width: 120px;
   height: 3px;
@@ -147,23 +168,37 @@ h3 { font-size: 20px; margin: 18px 0 10px; color: var(--text); }
   margin: 0 0 16px;              /* 更接近正文段落间距 */
   font-weight: 400;
 }
-.cta-row { display: flex; gap: 12px; }
+.cta-row {
+  display: flex;
+  gap: 0.75rem;              /* 12px -> rem */
+  flex-wrap: nowrap;         /* 不换行 */
+  white-space: nowrap;       /* 子元素单行 */
+  overflow-x: auto;          /* 超出时横向滚动 */
+  -webkit-overflow-scrolling: touch;
+}
 .btn { 
   display: inline-flex; 
   align-items: center; 
   justify-content: center; 
-  height: 44px; 
-  padding: 0 20px; 
-  border-radius: 12px; 
+  /* 采用内边距自适应高度，避免固定高度在小屏导致挤压换行 */
+  padding: 0.6rem 1rem;      /* 约 9.6px 16px */
+  border-radius: 0.5rem;     /* 8px -> rem */
   border: 1px solid var(--border); 
   color: var(--text); 
   text-decoration: none; 
   background: var(--bg-elev);
   font-weight: 500;
+  font-size: clamp(0.875rem, 1.8vw, 1rem);
+  line-height: 1;            /* 紧凑行高 */
+  white-space: nowrap;       /* 按钮文本不换行 */
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
-.btn.btn-sm { height: 34px; padding: 0 14px; border-radius: 10px; box-shadow: none; }
+.btn.btn-sm {
+  padding: 0.5rem 0.875rem;  /* 约 8px 14px -> rem */
+  border-radius: 0.5rem;     /* 10px -> rem */
+  box-shadow: none;
+}
 .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
@@ -265,8 +300,19 @@ h3 { font-size: 20px; margin: 18px 0 10px; color: var(--text); }
   color: var(--muted);
 }
 
-.filters { display: flex; gap: 8px; flex-wrap: wrap; }
-.chip { height: 32px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--chip); color: var(--muted); cursor: pointer; font-size: 14px; }
+.filters { display: flex; gap: 0.5rem; flex-wrap: wrap; } /* 8px -> rem */
+.chip {
+  /* 移除固定高度，改用内边距 + 单行防止换行 */
+  padding: 0.375rem 0.75rem; /* 约 6px 12px -> rem */
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--chip);
+  color: var(--muted);
+  cursor: pointer;
+  font-size: clamp(0.8125rem, 1.6vw, 0.9375rem); /* 13px~15px 区间 */
+  line-height: 1;
+  white-space: nowrap;       /* 芯片文本不换行 */
+}
 .chip.is-active, .chip:hover { color: var(--text); border-color: #2a2f42; }
 .chip.is-active { background: var(--primary-weak); }
 

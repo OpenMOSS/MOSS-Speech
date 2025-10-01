@@ -30,13 +30,16 @@
     <main>
       <section class="hero">
         <div class="container">
+          <div class="hero-logo" role="img" aria-label="MOSS-Speech logo">
+            <img src="assets/illustrations/logo.png" alt="MOSS-Speech logo" />
+          </div>
           <div class="hero-title">
             <h1>MOSS-Speech: Towards True Speech-to-Speech Models Without Text Guidance</h1>
             <div class="title-divider"></div>
           </div>
           <div class="hero-inner">
             <div class="hero-copy">
-              <p class="subtitle">Speech is the most natural modality for human communication and a compelling target for human–computer interaction. Conventional voice assistants adopt a cascaded pipeline—automatic speech recognition (ASR) → large language model (LLM) text generation → text-to-speech (TTS)—which, despite its maturity, discards fine-grained prosodic cues such as intonation, emotion, and pauses, limiting conversational naturalness. Recent “end-to-end” systems have shown promise, yet most still require an intermediate textual representation during generation, using text as guidance before producing speech. This compromise reduces both efficiency and expressive capacity.</p>
+              <!-- <p class="subtitle">Speech is the most natural modality for human communication and a compelling target for human–computer interaction. Conventional voice assistants adopt a cascaded pipeline—automatic speech recognition (ASR) → large language model (LLM) text generation → text-to-speech (TTS)—which, despite its maturity, discards fine-grained prosodic cues such as intonation, emotion, and pauses, limiting conversational naturalness. Recent “end-to-end” systems have shown promise, yet most still require an intermediate textual representation during generation, using text as guidance before producing speech. This compromise reduces both efficiency and expressive capacity.</p> -->
               <p class="subtitle">MOSS-Speech introduces true end-to-end speech interaction. Unlike cascaded pipelines or text-guided models, it directly generates speech without first producing text. This design preserves intonation, emotion, and other paralinguistic cues, while retaining the knowledge of the pretrained textual LLM—enabling more natural and efficient speech-to-speech dialogue.</p>
               <div class="cta-row">
               <a class="btn" href="#demos">Demo Videos</a>
