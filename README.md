@@ -100,7 +100,7 @@ If you use this repository or model in your research, please cite:
 
 ```bibtex
 @misc{moss_speech2025,
-  author = {SLM Team},
+  author = {SII OpenMOSS Team},
   title = {MOSS-Speech: Towards True Speech-to-Speech Models Without Text Guidance},
   year = {2025},
   publisher = {GitHub},

@@ -100,7 +100,7 @@ python3 gradio_demo.py
 
 ```bibtex
 @misc{moss_speech2025,
-  author = {SLM Team},
+  author = {SII OpenMOSS Team},
   title = {MOSS-Speech: Towards True Speech-to-Speech Models Without Text Guidance},
   year = {2025},
   publisher = {GitHub},
