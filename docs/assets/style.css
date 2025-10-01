@@ -19,6 +19,9 @@
   /* tags keep contrast on light bg */
   --tag-bg: #475569;
   --tag-text: #ffffff;
+
+  /* 让浏览器原生控件跟随暗黑模式配色 */
+  color-scheme: light dark;
 }
 
 /* optional dark theme tokens to match reference */
@@ -38,6 +41,37 @@
   --divider: #1b2232;
   --shadow-elev: 0 10px 25px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.25);
   --shadow: 0 10px 25px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.25);
+}
+
+/* 自动跟随系统暗黑模式（无需 data-theme） */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b0f17;
+    --bg-elev: #111623;
+    --text: #e7ecf3;
+    --muted: #a5b0c6;
+    --brand: #8b7dff;
+    --accent: #8b7dff;
+    --primary: #8b7dff;
+    --primary-weak: #181a2a;
+    --card: #111623;
+    --card-border: #1c2335;
+    --chip: #181a2a;
+    --border: #1c2335;
+    --divider: #1b2232;
+    --shadow-elev: 0 10px 25px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.25);
+    --shadow: 0 10px 25px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.25);
+  }
+  /* Header 在暗色下使用深色半透明背景 */
+  .site-header { background: rgba(8,12,21,.85); }
+  /* Hero 背景发光在暗色下更亮一些 */
+  .hero::before {
+    filter: blur(24px) saturate(120%);
+    background:
+      radial-gradient(60% 60% at 50% 20%, rgba(139, 125, 255, 0.28), transparent 60%),
+      radial-gradient(40% 40% at 80% 10%, rgba(56, 189, 248, 0.24), transparent 60%),
+      radial-gradient(35% 35% at 20% 5%,  rgba(244, 114, 182, 0.22), transparent 60%);
+  }
 }
 
 * { box-sizing: border-box; }
@@ -107,10 +141,10 @@ h3 { font-size: 20px; margin: 18px 0 10px; color: var(--text); }
   display: block; /* 或 grid-template-columns: 1fr; */
 }
 .subtitle { 
-  color: var(--muted); 
-  font-size: 18px;
-  line-height: 1.8; 
-  margin: 0 0 26px;
+  color: var(--text);            /* 与正文一致 */
+  font-size: 17px;               /* 与 p 对齐 */
+  line-height: 1.75;             /* 与 p 对齐 */
+  margin: 0 0 16px;              /* 更接近正文段落间距 */
   font-weight: 400;
 }
 .cta-row { display: flex; gap: 12px; }
@@ -129,6 +163,7 @@ h3 { font-size: 20px; margin: 18px 0 10px; color: var(--text); }
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
+.btn.btn-sm { height: 34px; padding: 0 14px; border-radius: 10px; box-shadow: none; }
 .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
@@ -322,5 +357,11 @@ h3 { font-size: 20px; margin: 18px 0 10px; color: var(--text); }
   .features-grid { grid-template-columns: 1fr; }
   .demo-grid { grid-template-columns: 1fr; }
 }
+
+/* 确保暗黑模式下导航背景正确（置于文件末尾以赢得层叠） */
+@media (prefers-color-scheme: dark) {
+  .site-header { background: rgba(8,12,21,.85); }
+}
+[data-theme="dark"] .site-header { background: rgba(8,12,21,.85); }
 
 

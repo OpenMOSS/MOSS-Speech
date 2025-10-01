@@ -20,7 +20,8 @@
         </div>
         <nav class="nav">
           <a href="#features">Features</a>
-          <a href="#demos">Demos</a>
+          <a href="#demos">Demo Videos</a>
+          <a href="https://moss-speech-demo.open-moss.com" target="_blank" rel="noreferrer">Online Demo</a>
           <a href="https://github.com/OpenMOSS/MOSS-Speech" target="_blank" rel="noreferrer">GitHub</a>
         </nav>
       </div>
@@ -36,9 +37,10 @@
           <div class="hero-inner">
             <div class="hero-copy">
               <p class="subtitle">Speech is the most natural modality for human communication and a compelling target for human–computer interaction. Conventional voice assistants adopt a cascaded pipeline—automatic speech recognition (ASR) → large language model (LLM) text generation → text-to-speech (TTS)—which, despite its maturity, discards fine-grained prosodic cues such as intonation, emotion, and pauses, limiting conversational naturalness. Recent “end-to-end” systems have shown promise, yet most still require an intermediate textual representation during generation, using text as guidance before producing speech. This compromise reduces both efficiency and expressive capacity.</p>
-              <p class="subtitle">MOSS-Speech marks a shift to true end-to-end speech interaction: it performs speech-to-speech generation without first materializing text prompts, while retaining strong reasoning capabilities typically associated with text-centric LLMs. By eliminating the mandatory text bottleneck, MOSS-Speech enables more faithful prosody preservation and more fluid, natural dialogues, advancing the field toward seamless, fully acoustic human–AI conversation.</p>
+              <p class="subtitle">MOSS-Speech introduces true end-to-end speech interaction. Unlike cascaded pipelines or text-guided models, it directly generates speech without first producing text. This design preserves intonation, emotion, and other paralinguistic cues, while retaining the knowledge of the pretrained textual LLM—enabling more natural and efficient speech-to-speech dialogue.</p>
               <div class="cta-row">
-              <a class="btn" href="#demos">Try Demos</a>
+              <a class="btn" href="#demos">Demo Videos</a>
+              <a class="btn" href="https://moss-speech-demo.open-moss.com" target="_blank" rel="noreferrer">Try Online Demo</a>
               <a class="btn" href="https://github.com/OpenMOSS/MOSS-Speech" target="_blank" rel="noreferrer">Learn More</a>
               </div>
             </div>
@@ -48,22 +50,22 @@
 
       <section id="features" class="section">
         <div class="container">
-          <h2>Highlights</h2>
+          <h2>Features</h2>
           <div class="features-grid">
             <div class="feature">
               <div class="emoji">🎯</div>
-              <h3>True Speech-to-Speech LLM</h3>
-              <p>Directly processes speech for both understanding and generation, preserving intonation, affect, laughter, and pauses for natural, efficient conversations.</p>
+              <h3>True Speech-to-Speech Large Language Model</h3>
+              <p>MOSS-Speech understands and generates speech directly — no text guidance required. It can capture and generate emotion, laughter, and other paralinguistic information, enabling more natural and efficient interaction.</p>
             </div>
             <div class="feature">
               <div class="emoji">🔧</div>
-              <h3>Modality-Aligned Architecture</h3>
-              <p>Built on a pretrained text LLM with modality-specific layers over shared reasoning cores, enabling native speech comprehension and synthesis while retaining strong reasoning.</p>
+              <h3>New Architecture for Modality Alignment</h3>
+              <p>Built upon a pretrained text LLM, MOSS-Speech introduces modality-layered design with frozen pretraining. This allows the model to retain the abilities of the text LLM while natively adding speech understanding and generation capabilities.</p>
             </div>
             <div class="feature">
               <div class="emoji">📊</div>
-              <h3>Bimodal I/O Support</h3>
-              <p>Enables flexible cross-modal communication by supporting all combinations of speech and text: speech→speech, text→speech, speech→text, and text→text.</p>
+              <h3>Native Multimodal Support</h3>
+              <p>MOSS-Speech handles both speech and text seamlessly, supporting flexible multimodal interaction including: Speech → Speech, Text → Speech, Speech → Text, and Text → Text.</p>
             </div>
           </div>
         </div>
