@@ -7,7 +7,7 @@
     <a href="https://moss-speech.open-moss.com/" target="_blank" style="margin: 2px;">
     <img alt="Video Demo" src="https://img.shields.io/badge/📹%20Video%20Demo-MOSS--Speech-536af5?color=1ae3f5&logoColor=white" style="display: inline-block; vertical-align: middle;"/>
     </a>
-    <a href="papers/MOSS-Speech Technical Report.pdf" target="_blank" style="margin: 2px;">
+    <a href="https://arxiv.org/abs/2510.00499" target="_blank" style="margin: 2px;">
     <img alt="Technical Report" src="https://img.shields.io/badge/📄%20Technical%20Report-MOSS--Speech-4caf50?color=4caf50&logoColor=white" style="display: inline-block; vertical-align: middle;"/>
     </a>
     <a href="https://huggingface.co/collections/fnlp/moss-speech-68dbab23bc98501afede0cd3" target="_blank" style="margin: 2px;">
@@ -35,7 +35,9 @@ MOSS-Speech 开创了真语音到语音交互范式。与传统的级联管线�
 
 ![模型架构](assets/arch.png)
 
-欢迎查看我们系统的[演示视频](https://moss-speech.open-moss.com/)和[在线演示](https://huggingface.co/spaces/fnlp/MOSS-Speech)
+欢迎查看我们系统的[演示视频](https://moss-speech.open-moss.com/)和[在线演示](https://huggingface.co/spaces/fnlp/MOSS-Speech)。
+
+技术报告 [arXiv:2510.00499](https://arxiv.org/abs/2510.00499)。
 
 ---
 
@@ -99,12 +101,13 @@ python3 gradio_demo.py
 如果在研究中使用本仓库或模型，请引用如下文献：
 
 ```bibtex
-@misc{moss_speech2025,
-  author = {SII OpenMOSS Team},
-  title = {MOSS-Speech: Towards True Speech-to-Speech Models Without Text Guidance},
-  year = {2025},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/OpenMOSS/MOSS-Speech}},
+@misc{zhao2025mossspeechtruespeechtospeechmodels,
+      title={MOSS-Speech: Towards True Speech-to-Speech Models Without Text Guidance}, 
+      author={Xingjian Zhao and Zhe Xu and Luozhijie Jin and Yang Wang and Hanfu Chen and Yaozhou Jiang and Ke Chen and Ruixiao Li and Mingshu Chen and Ruiming Wang and Wenbo Zhang and Yiyang Zhang and Donghua Yu and Yang Gao and Xiaogui Yang and Yitian Gong and Yuanfan Xu and Qinyuan Cheng and Zhaoye Fei and Shimin Li and Yaqian Zhou and Xuanjing Huang and Xipeng Qiu},
+      year={2025},
+      eprint={2510.00499},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2510.00499}, 
 }
 ```
