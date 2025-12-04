@@ -62,6 +62,8 @@ pip install -r requirements.txt
 git submodule update --init --recursive
 ```
 
+在 Ascend 芯片上使用时，请参考[Ascend环境修改说明](./README_ASCEND.md)对部分代码进行修改。
+
 ---
 
 ## 🚀 使用

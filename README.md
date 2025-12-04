@@ -63,6 +63,8 @@ pip install -r requirements.txt
 git submodule update --init --recursive
 ```
 
+When using on Ascend chips, please refer to [Ascend Environment Modification Instructions](./README_ASCEND.md) for necessary code modifications.
+
 ---
 
 ## 🚀 Usage
@@ -74,7 +76,6 @@ python3 gradio_demo.py
 <p align="center">
     <img src="assets/gradio.jpg" width="80%"> <br>
 </p>
-
 
 ---
 
