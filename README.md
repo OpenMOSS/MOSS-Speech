@@ -1,4 +1,4 @@
-# MOSS-Speech: Towards True Speech-to-Speech Models Without Text Guidance
+# MOSS-Speech: Towards True Speech-to-Speech Models Without Text Guidance (ICLR 2026)
 
 <div align="center" style="line-height: 1;">
     <a href="https://huggingface.co/spaces/fnlp/MOSS-Speech" target="_blank" style="margin: 2px;">
@@ -6,6 +6,9 @@
     </a>
     <a href="https://moss-speech.open-moss.com/" target="_blank" style="margin: 2px;">
     <img alt="Video Demo" src="https://img.shields.io/badge/📹%20Video%20Demo-MOSS--Speech-536af5?color=1ae3f5&logoColor=white" style="display: inline-block; vertical-align: middle;"/>
+    </a>
+    <a href="https://openreview.net/forum?id=zjaV5zmlkl" target="_blank" style="margin: 2px;">
+    <img alt="Paper" src="https://img.shields.io/badge/📄%20Paper-ICLR%202026-4caf50?color=4caf50&logoColor=white" style="display: inline-block; vertical-align: middle;"/>
     </a>
     <a href="https://arxiv.org/abs/2510.00499" target="_blank" style="margin: 2px;">
     <img alt="Technical Report" src="https://img.shields.io/badge/📄%20Technical%20Report-MOSS--Speech-4caf50?color=4caf50&logoColor=white" style="display: inline-block; vertical-align: middle;"/>
@@ -102,13 +105,22 @@ python3 gradio_demo.py
 If you use this repository or model in your research, please cite:
 
 ```bibtex
+@inproceedings{
+    zhao2026towards,
+    title={Towards True Speech-to-Speech Models Without Text Guidance},
+    author={Xingjian Zhao and Zhe Xu and Luozhijie Jin and Yang Wang and Hanfu Chen and Yaozhou Jiang and Ke Chen and Ruixiao Li and Mingshu Chen and Ruiming Wang and Wenbo Zhang and Qinyuan Cheng and Zhaoye Fei and Shimin Li and Xipeng Qiu},
+    booktitle={The Fourteenth International Conference on Learning Representations},
+    year={2026},
+    url={https://openreview.net/forum?id=zjaV5zmlkl}
+}
+
 @misc{zhao2025mossspeechtruespeechtospeechmodels,
-      title={MOSS-Speech: Towards True Speech-to-Speech Models Without Text Guidance}, 
-      author={Xingjian Zhao and Zhe Xu and Luozhijie Jin and Yang Wang and Hanfu Chen and Yaozhou Jiang and Ke Chen and Ruixiao Li and Mingshu Chen and Ruiming Wang and Wenbo Zhang and Yiyang Zhang and Donghua Yu and Yang Gao and Xiaogui Yang and Yitian Gong and Yuanfan Xu and Qinyuan Cheng and Zhaoye Fei and Shimin Li and Yaqian Zhou and Xuanjing Huang and Xipeng Qiu},
-      year={2025},
-      eprint={2510.00499},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2510.00499}, 
+    title={MOSS-Speech: Towards True Speech-to-Speech Models Without Text Guidance}, 
+    author={Xingjian Zhao and Zhe Xu and Luozhijie Jin and Yang Wang and Hanfu Chen and Yaozhou Jiang and Ke Chen and Ruixiao Li and Mingshu Chen and Ruiming Wang and Wenbo Zhang and Yiyang Zhang and Donghua Yu and Yang Gao and Xiaogui Yang and Yitian Gong and Yuanfan Xu and Qinyuan Cheng and Zhaoye Fei and Shimin Li and Yaqian Zhou and Xuanjing Huang and Xipeng Qiu},
+    year={2025},
+    eprint={2510.00499},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL},
+    url={https://arxiv.org/abs/2510.00499}, 
 }
 ```
